@@ -48,6 +48,5 @@ public class Physiotherapist extends AuditModel {
     @NotBlank
     @Column(name = "birthday_date")
     private String birthdayDate;
-
-
+    
 }

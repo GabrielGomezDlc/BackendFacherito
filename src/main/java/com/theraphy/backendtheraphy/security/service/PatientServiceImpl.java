@@ -88,5 +88,12 @@ public class PatientServiceImpl implements PatientService {
         }).orElseThrow(()-> new ResourceNotFoundException(ENTITY,patientId));
     }
 
+    @Override
+    public Patient addAppointmentToPatient(Long patientId, String scheduledDate,String topic, String diagnosis, String done) {
+        return patientRepository.findById(patientId).map(patient -> {
+            return patientRepository.save(patient.addAppointment(scheduledDate,topic,diagnosis, done));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,patientId));
+    }
+
 
 }

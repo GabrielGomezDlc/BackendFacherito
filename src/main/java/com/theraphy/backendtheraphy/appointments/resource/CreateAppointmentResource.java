@@ -1,5 +1,7 @@
 package com.theraphy.backendtheraphy.appointments.resource;
 
+import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.security.resource.PatientResource;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -33,4 +35,5 @@ public class CreateAppointmentResource {
     @NotBlank
     @Size(max = 10)
     private String done;
+
 }

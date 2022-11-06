@@ -1,5 +1,6 @@
 package com.theraphy.backendtheraphy.appointments.resource;
 
+import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;

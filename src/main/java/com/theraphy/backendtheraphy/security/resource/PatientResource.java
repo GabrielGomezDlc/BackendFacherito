@@ -1,6 +1,10 @@
 package com.theraphy.backendtheraphy.security.resource;
 
+import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
+import com.theraphy.backendtheraphy.appointments.resource.AppointmentResource;
 import lombok.*;
+
+import java.util.Set;
 
 @Getter
 @Setter
