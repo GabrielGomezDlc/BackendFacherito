@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.theraphy</groupId>
-    <artifactId>BackendTheraphy</artifactId>
+    <artifactId>backendtheraphy</artifactId>
     <version>1.0</version>
-    <name>Theraphy</name>
+    <name>BackendTheraphy</name>
     <description>Theraphy RESTful API, made with java and springboot, applying domain-driven architecture approach.</description>
     <properties>
         <java.version>1.8</java.version>
