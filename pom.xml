@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.theraphy</groupId>
-    <artifactId>BackendTheraphy</artifactId>
+    <artifactId>backendtheraphy.BackendTheraphyApplication</artifactId>
     <version>1.0</version>
     <name>BackendTheraphy</name>
     <description>Theraphy RESTful API, made with java and springboot, applying domain-driven architecture approach.</description>
@@ -136,13 +136,6 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                     <configuration>
                         <excludes>
                             <exclude>
