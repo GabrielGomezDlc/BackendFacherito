@@ -10,8 +10,7 @@
     </parent>
     <groupId>com.theraphy</groupId>
     <artifactId>Backend-Theraphy</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>1.0</version>
     <name>Backend-Theraphy</name>
     <description>Theraphy RESTful API, made with java and springboot, applying domain-driven architecture approach.</description>
     <properties>
