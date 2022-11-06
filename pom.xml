@@ -154,7 +154,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>com.theraphy.backendtheraphy.BackendTheraphyApplication</mainClass>
+                                <mainClass>main.java.com.theraphy.backendtheraphy.BackendTheraphyApplication</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
