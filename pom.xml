@@ -144,10 +144,8 @@
                             </exclude>
                         </excludes>
                     </configuration>
-
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
-
 </project>
