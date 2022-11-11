@@ -1,5 +1,6 @@
 package com.theraphy.backendtheraphy.security.service;
 
+import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
 import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.security.domain.persistence.PhysiotherapistRepository;
 import com.theraphy.backendtheraphy.security.domain.service.PhysiotherapistService;
@@ -85,5 +86,12 @@ public class PhysiotherapistServiceImpl implements PhysiotherapistService {
             physiotherapistRepository.delete(physiotherapist);
             return ResponseEntity.ok().build();
         }).orElseThrow(()-> new ResourceNotFoundException(ENTITY,patientId));
+    }
+
+    @Override
+    public Physiotherapist addAppointmentToPhysiotherapist(Long physiotherapistId, String scheduledDate, String topic, String diagnosis, String done) {
+        return physiotherapistRepository.findById(physiotherapistId).map(patient -> {
+            return physiotherapistRepository.save(patient.addAppointment(scheduledDate,topic,diagnosis, done));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,physiotherapistId));
     }
 }

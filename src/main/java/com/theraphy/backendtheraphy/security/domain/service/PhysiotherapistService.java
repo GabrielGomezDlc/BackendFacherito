@@ -15,4 +15,6 @@ public interface PhysiotherapistService {
     Physiotherapist create(Physiotherapist physiotherapist);
     Physiotherapist update(Long physiotherapistId, Physiotherapist request);
     ResponseEntity<?> delete(Long physiotherapistId);
+    Physiotherapist addAppointmentToPhysiotherapist(Long physiotherapistId, String scheduledDate,String topic, String diagnosis, String done);
+
 }

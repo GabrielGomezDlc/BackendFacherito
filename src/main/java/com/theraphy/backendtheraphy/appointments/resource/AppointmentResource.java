@@ -1,6 +1,7 @@
 package com.theraphy.backendtheraphy.appointments.resource;
 
 import com.theraphy.backendtheraphy.security.resource.PatientResource;
+import com.theraphy.backendtheraphy.security.resource.PhysiotherapistResource;
 import lombok.*;
 
 @Getter
@@ -15,4 +16,5 @@ public class AppointmentResource {
     private String diagnosis;
     private String done;
     private PatientResource patient;
+    private PhysiotherapistResource physiotherapist;
 }

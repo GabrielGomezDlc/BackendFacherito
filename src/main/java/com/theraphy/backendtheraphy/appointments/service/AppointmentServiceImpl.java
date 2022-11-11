@@ -86,6 +86,11 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public Appointment getByTopicAndPatientId(String topic, Long patientId) {
-        return appointmentRepository.findByTopicAndPatientId(topic,patientId).orElseThrow(()-> new ResourceNotFoundException("No Appointment with this name found for Skill"));
+        return appointmentRepository.findByTopicAndPatientId(topic,patientId).orElseThrow(()-> new ResourceNotFoundException("No Appointment with this name found for Patient"));
+    }
+
+    @Override
+    public Appointment getByTopicAndPhysiotherapistId(String topic, Long physiotherapistId) {
+        return appointmentRepository.findByTopicAndPhysiotherapistId(topic, physiotherapistId).orElseThrow(()-> new ResourceNotFoundException("No Appointment with this name found for Physiotherapist"));
     }
 }

@@ -23,7 +23,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "patients")
-public class Patient {
+public class Patient extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -51,6 +51,7 @@ public class Patient {
     @NotNull
     @NotBlank
     @Column(name = "birthday_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private String birthdayDate;
 
     @OneToMany(cascade = CascadeType.ALL,
@@ -65,7 +66,7 @@ public class Patient {
 
         // Validate Criterion Name uniqueness for Skill
         if(!appointments.isEmpty()) {
-            if (appointments.stream().anyMatch(patient -> patient.getScheduledDate().equals(scheduledDate)))
+            if (appointments.stream().anyMatch(appointment -> appointment.getScheduledDate().equals(scheduledDate)))
                 throw new ResourceValidationException("Criterion", "A criterion with the same name already exists");
         }
 

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import lombok.*;
 
@@ -50,4 +51,8 @@ public class Appointment extends AuditModel {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "physiotherapist_id", nullable = false)
+    private Physiotherapist physiotherapist;
 }
