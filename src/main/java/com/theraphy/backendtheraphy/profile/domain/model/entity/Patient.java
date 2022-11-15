@@ -5,12 +5,14 @@ import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
+import com.theraphy.backendtheraphy.treatments.domain.model.entity.TreatmentPatient;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -94,6 +96,25 @@ public class Patient extends AuditModel{
         reviews.add(new Review()
                 .withStars(stars)
                 .withDescription(description)
+                .withPatient(this));
+
+        return this;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER, mappedBy = "patient")
+    private Set<TreatmentPatient> treatments = new HashSet<>();
+
+    public Patient addTreatmentPatient(Date registrationDate, Double progress){
+        // Initialize if null
+        if(treatments == null) {
+            treatments = new HashSet<>();
+        }
+
+        // Add Criterion to Skill
+        treatments.add(new TreatmentPatient()
+                        .withProgress(progress)
+                        .withRegistrationDate(registrationDate)
                 .withPatient(this));
 
         return this;

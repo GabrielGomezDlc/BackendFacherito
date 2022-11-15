@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -99,6 +100,13 @@ public class PatientServiceImpl implements PatientService {
     public Patient addReviewToPatient(Long patientId, String description, Long stars) {
         return patientRepository.findById(patientId).map(patient -> {
             return patientRepository.save(patient.addReview(description, stars));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,patientId));
+    }
+
+    @Override
+    public Patient addTreatmentToPatient(Long patientId, Date registrationDate, Double progress) {
+        return patientRepository.findById(patientId).map(patient -> {
+            return patientRepository.save(patient.addTreatmentPatient(registrationDate, progress));
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,patientId));
     }
 

@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Date;
 import java.util.List;
 
 public interface PatientService {
@@ -18,5 +19,7 @@ public interface PatientService {
     Patient addAppointmentToPatient(Long patientId, String scheduledDate,String topic, String diagnosis, String done);
 
     Patient addReviewToPatient(Long patientId, String description, Long stars);
+
+    Patient addTreatmentToPatient(Long patientId, Date registrationDate, Double progress);
 
 }

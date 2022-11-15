@@ -9,6 +9,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -45,4 +48,24 @@ public class Treatment extends AuditModel {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "physiotherapist_id", nullable = false)
     private Physiotherapist physiotherapist;
+
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER, mappedBy = "treatment")
+    private Set<TreatmentPatient> treatments = new HashSet<>();
+
+    public Treatment addTreatmentPatient(Date registrationDate, Double progress){
+        // Initialize if null
+        if(treatments == null) {
+            treatments = new HashSet<>();
+        }
+
+        // Add Criterion to Skill
+        treatments.add(new TreatmentPatient()
+                .withProgress(progress)
+                .withRegistrationDate(registrationDate)
+                .withTreatment(this));
+
+        return this;
+    }
 }
