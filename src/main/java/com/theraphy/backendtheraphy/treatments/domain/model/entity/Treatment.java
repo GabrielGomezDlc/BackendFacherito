@@ -20,7 +20,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "treatments")
-public class Treatment extends AuditModel {
+public class
+Treatment extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
