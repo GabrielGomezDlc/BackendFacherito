@@ -1,9 +1,11 @@
-package com.theraphy.backendtheraphy.security.domain.model.entity;
+package com.theraphy.backendtheraphy.profile.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
+import com.theraphy.backendtheraphy.treatments.domain.model.entity.Treatment;
 import lombok.*;
 
 import javax.persistence.*;
@@ -59,7 +61,7 @@ public class Physiotherapist extends AuditModel {
             fetch = FetchType.EAGER, mappedBy = "physiotherapist")
     private Set<Appointment> appointments = new HashSet<>();
 
-    public Physiotherapist addAppointment(String scheduledDate,String topic, String diagnosis, String done) {
+    public Physiotherapist addAppointment(String scheduledDate, String topic, String diagnosis, String done) {
         // Initialize if null
         if (appointments == null) {
             appointments = new HashSet<>();
@@ -82,4 +84,42 @@ public class Physiotherapist extends AuditModel {
         return this;
     }
 
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER, mappedBy = "physiotherapist")
+    private Set<Review> reviews = new HashSet<>();
+    public Physiotherapist addReview(String description, Long stars){
+        // Initialize if null
+        if(reviews == null) {
+            reviews = new HashSet<>();
+        }
+
+        // Add Criterion to Skill
+        reviews.add(new Review()
+                .withStars(stars)
+                .withDescription(description)
+                .withPhysiotherapist(this));
+
+        return this;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER, mappedBy = "physiotherapist")
+    private Set<Treatment> treatments = new HashSet<>();
+
+    public Physiotherapist addTreatment(String title, String description, String photoUrl, int sessionQuantity){
+        // Initialize if null
+        if(treatments == null) {
+            treatments = new HashSet<>();
+        }
+
+        // Add Criterion to Skill
+        treatments.add(new Treatment()
+                        .withPhotoUrl(photoUrl)
+                        .withTitle(title)
+                        .withDescription(description)
+                        .withSessionsQuantity(sessionQuantity)
+                .withPhysiotherapist(this));
+
+        return this;
+    }
 }

@@ -1,11 +1,11 @@
-package com.theraphy.backendtheraphy.security.service;
+package com.theraphy.backendtheraphy.profile.service;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
-import com.theraphy.backendtheraphy.security.domain.model.entity.User;
-import com.theraphy.backendtheraphy.security.domain.persistence.PatientRepository;
-import com.theraphy.backendtheraphy.security.domain.service.PatientService;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.persistence.PatientRepository;
+import com.theraphy.backendtheraphy.profile.domain.service.PatientService;
 import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
 import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -92,6 +92,13 @@ public class PatientServiceImpl implements PatientService {
     public Patient addAppointmentToPatient(Long patientId, String scheduledDate,String topic, String diagnosis, String done) {
         return patientRepository.findById(patientId).map(patient -> {
             return patientRepository.save(patient.addAppointment(scheduledDate,topic,diagnosis, done));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,patientId));
+    }
+
+    @Override
+    public Patient addReviewToPatient(Long patientId, String description, Long stars) {
+        return patientRepository.findById(patientId).map(patient -> {
+            return patientRepository.save(patient.addReview(description, stars));
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,patientId));
     }
 

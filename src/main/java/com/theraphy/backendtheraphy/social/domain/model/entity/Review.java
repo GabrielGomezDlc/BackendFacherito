@@ -1,6 +1,5 @@
-package com.theraphy.backendtheraphy.appointments.domain.model.entity;
+package com.theraphy.backendtheraphy.social.domain.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
@@ -17,34 +16,19 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "appointments")
-public class Appointment extends AuditModel {
+@Table(name = "reviews")
+public class Review extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @NotBlank
-    @Size(max = 20)
-    @Column(name = "scheduled_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private String scheduledDate;
 
-    @NotNull
-    @NotBlank
-    @Size(max = 30)
-    @Column(unique = true)
-    private String topic;
+    private Long stars;
 
-    @NotNull
     @NotBlank
-    @Size(max = 200)
-    private String diagnosis;
-
     @NotNull
-    @NotBlank
-    @Size(max = 10)
-    private String done;
+    @Size(max = 500)
+    private String description;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
@@ -53,4 +37,5 @@ public class Appointment extends AuditModel {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "physiotherapist_id", nullable = false)
     private Physiotherapist physiotherapist;
+
 }

@@ -1,5 +1,6 @@
-package com.theraphy.backendtheraphy.treatments.resource;
+package com.theraphy.backendtheraphy.social.resource;
 
+import com.theraphy.backendtheraphy.profile.resource.PatientResource;
 import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import lombok.*;
 
@@ -12,25 +13,14 @@ import javax.validation.constraints.Size;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateTreatmentResource {
+public class CreateReviewResource {
+
+    private Long stars;
 
     @NotBlank
     @NotNull
-    @Size(max = 50)
-    private String title;
-
-    @NotBlank
-    @NotNull
-    @Size(max = 200)
+    @Size(max = 500)
     private String description;
-
-    @NotNull
-    @NotBlank
-    @Size(max = 60)
-    private String photoUrl;
-
-    private int sessionsQuantity;
-
+    private PatientResource patient;
     private PhysiotherapistResource physiotherapist;
-
 }

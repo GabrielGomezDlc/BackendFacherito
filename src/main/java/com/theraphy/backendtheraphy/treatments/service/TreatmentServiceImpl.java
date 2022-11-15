@@ -2,6 +2,7 @@ package com.theraphy.backendtheraphy.treatments.service;
 
 import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
 import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.treatments.domain.model.entity.Treatment;
 import com.theraphy.backendtheraphy.treatments.domain.persistence.TreatmentRepository;
 import com.theraphy.backendtheraphy.treatments.domain.service.TreatmentService;
@@ -82,5 +83,10 @@ public class TreatmentServiceImpl implements TreatmentService {
             treatmentRepository.delete(treatment);
             return ResponseEntity.ok().build();
         }).orElseThrow(()-> new ResourceNotFoundException(ENTITY,treatmentId));
+    }
+
+    @Override
+    public Treatment getByTitleAndPhysiotherapistId(String title, Long physiotherapistId) {
+        return treatmentRepository.findByTitleAndPhysiotherapistId(title, physiotherapistId).orElseThrow(()-> new ResourceNotFoundException("No Treatments with this title found for Physiotherapist"));
     }
 }

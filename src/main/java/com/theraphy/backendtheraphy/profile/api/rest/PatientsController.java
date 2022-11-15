@@ -1,8 +1,10 @@
-package com.theraphy.backendtheraphy.security.api.rest;
+package com.theraphy.backendtheraphy.profile.api.rest;
 
-import com.theraphy.backendtheraphy.security.domain.service.PatientService;
-import com.theraphy.backendtheraphy.security.mapping.PatientMapper;
-import com.theraphy.backendtheraphy.security.resource.*;
+import com.theraphy.backendtheraphy.profile.domain.service.PatientService;
+import com.theraphy.backendtheraphy.profile.mapping.PatientMapper;
+import com.theraphy.backendtheraphy.profile.resource.CreatePatientResource;
+import com.theraphy.backendtheraphy.profile.resource.PatientResource;
+import com.theraphy.backendtheraphy.profile.resource.UpdatePatientResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,5 +1,6 @@
-package com.theraphy.backendtheraphy.treatments.resource;
+package com.theraphy.backendtheraphy.social.resource;
 
+import com.theraphy.backendtheraphy.profile.resource.PatientResource;
 import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import lombok.*;
 
@@ -8,12 +9,10 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class TreatmentResource {
+public class ReviewResource {
     private Long id;
-    private String title;
     private String description;
-    private String photoUrl;
-    private int sessionsQuantity;
+    private Long stars;
+    private PatientResource patient;
     private PhysiotherapistResource physiotherapist;
-
 }

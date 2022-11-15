@@ -1,10 +1,9 @@
 package com.theraphy.backendtheraphy.appointments.resource;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
-import com.theraphy.backendtheraphy.security.resource.PatientResource;
+import com.theraphy.backendtheraphy.profile.resource.PatientResource;
+import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -36,4 +35,6 @@ public class CreateAppointmentResource {
     @Size(max = 10)
     private String done;
 
+    private PatientResource patient;
+    private PhysiotherapistResource physiotherapist;
 }

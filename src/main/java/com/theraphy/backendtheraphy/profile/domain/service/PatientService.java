@@ -1,6 +1,7 @@
-package com.theraphy.backendtheraphy.security.domain.service;
+package com.theraphy.backendtheraphy.profile.domain.service;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -15,4 +16,7 @@ public interface PatientService {
     Patient update(Long patientId, Patient request);
     ResponseEntity<?> delete(Long patientId);
     Patient addAppointmentToPatient(Long patientId, String scheduledDate,String topic, String diagnosis, String done);
+
+    Patient addReviewToPatient(Long patientId, String description, Long stars);
+
 }

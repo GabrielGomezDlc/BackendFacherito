@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.security.resource;
+package com.theraphy.backendtheraphy.profile.resource;
 
 import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
 import com.theraphy.backendtheraphy.appointments.resource.AppointmentResource;

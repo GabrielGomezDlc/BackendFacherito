@@ -1,7 +1,7 @@
-package com.theraphy.backendtheraphy.security.domain.service;
+package com.theraphy.backendtheraphy.profile.domain.service;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
-import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -16,5 +16,9 @@ public interface PhysiotherapistService {
     Physiotherapist update(Long physiotherapistId, Physiotherapist request);
     ResponseEntity<?> delete(Long physiotherapistId);
     Physiotherapist addAppointmentToPhysiotherapist(Long physiotherapistId, String scheduledDate,String topic, String diagnosis, String done);
+
+    Physiotherapist addReviewToPhysiotherapist(Long physiotherapistId, String description, Long stars);
+
+    Physiotherapist addTreatmentToPhysiotherapist(Long physiotherapistId, String title, String description, String photoUrl, int sessionQuantity);
 
 }

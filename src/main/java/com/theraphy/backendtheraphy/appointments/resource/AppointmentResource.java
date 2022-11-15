@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.appointments.resource;
 
-import com.theraphy.backendtheraphy.security.resource.PatientResource;
-import com.theraphy.backendtheraphy.security.resource.PhysiotherapistResource;
+import com.theraphy.backendtheraphy.profile.resource.PatientResource;
+import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import lombok.*;
 
 @Getter

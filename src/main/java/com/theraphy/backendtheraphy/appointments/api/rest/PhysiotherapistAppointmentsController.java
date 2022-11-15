@@ -4,7 +4,7 @@ import com.theraphy.backendtheraphy.appointments.domain.service.AppointmentServi
 import com.theraphy.backendtheraphy.appointments.mapping.AppointmentMapper;
 import com.theraphy.backendtheraphy.appointments.resource.AppointmentResource;
 import com.theraphy.backendtheraphy.appointments.resource.CreateAppointmentResource;
-import com.theraphy.backendtheraphy.security.domain.service.PhysiotherapistService;
+import com.theraphy.backendtheraphy.profile.domain.service.PhysiotherapistService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.security.resource;
+package com.theraphy.backendtheraphy.profile.resource;
 
 import lombok.*;
 

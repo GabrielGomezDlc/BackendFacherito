@@ -1,11 +1,11 @@
-package com.theraphy.backendtheraphy.security.service;
+package com.theraphy.backendtheraphy.profile.service;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
-import com.theraphy.backendtheraphy.security.domain.model.entity.Physiotherapist;
-import com.theraphy.backendtheraphy.security.domain.persistence.PhysiotherapistRepository;
-import com.theraphy.backendtheraphy.security.domain.service.PhysiotherapistService;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
+import com.theraphy.backendtheraphy.profile.domain.persistence.PhysiotherapistRepository;
+import com.theraphy.backendtheraphy.profile.domain.service.PhysiotherapistService;
 import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
 import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -90,8 +90,20 @@ public class PhysiotherapistServiceImpl implements PhysiotherapistService {
 
     @Override
     public Physiotherapist addAppointmentToPhysiotherapist(Long physiotherapistId, String scheduledDate, String topic, String diagnosis, String done) {
-        return physiotherapistRepository.findById(physiotherapistId).map(patient -> {
-            return physiotherapistRepository.save(patient.addAppointment(scheduledDate,topic,diagnosis, done));
+        return physiotherapistRepository.findById(physiotherapistId).map(physiotherapist -> {
+            return physiotherapistRepository.save(physiotherapist.addAppointment(scheduledDate,topic,diagnosis, done));
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,physiotherapistId));
     }
+
+    @Override
+    public Physiotherapist addReviewToPhysiotherapist(Long physiotherapistId, String description, Long stars) {
+        return physiotherapistRepository.findById(physiotherapistId).map(physiotherapist -> {
+            return physiotherapistRepository.save(physiotherapist.addReview(description, stars));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,physiotherapistId));    }
+
+    @Override
+    public Physiotherapist addTreatmentToPhysiotherapist(Long physiotherapistId, String title, String description, String photoUrl, int sessionQuantity) {
+        return physiotherapistRepository.findById(physiotherapistId).map(patient -> {
+            return physiotherapistRepository.save(patient.addTreatment(title, description, photoUrl, sessionQuantity));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY,physiotherapistId));    }
 }

@@ -1,5 +1,7 @@
 package com.theraphy.backendtheraphy.treatments.domain.model.entity;
 
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import lombok.*;
 
@@ -39,4 +41,8 @@ public class Treatment extends AuditModel {
 
     @Column(name = "sessions_quantity")
     private int sessionsQuantity;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "physiotherapist_id", nullable = false)
+    private Physiotherapist physiotherapist;
 }

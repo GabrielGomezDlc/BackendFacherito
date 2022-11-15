@@ -1,9 +1,9 @@
-package com.theraphy.backendtheraphy.security.mapping;
+package com.theraphy.backendtheraphy.profile.mapping;
 
-import com.theraphy.backendtheraphy.security.domain.model.entity.Patient;
-import com.theraphy.backendtheraphy.security.resource.CreatePatientResource;
-import com.theraphy.backendtheraphy.security.resource.PatientResource;
-import com.theraphy.backendtheraphy.security.resource.UpdatePatientResource;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.resource.CreatePatientResource;
+import com.theraphy.backendtheraphy.profile.resource.PatientResource;
+import com.theraphy.backendtheraphy.profile.resource.UpdatePatientResource;
 import com.theraphy.backendtheraphy.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
