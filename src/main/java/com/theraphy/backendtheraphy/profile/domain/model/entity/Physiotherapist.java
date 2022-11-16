@@ -2,8 +2,8 @@ package com.theraphy.backendtheraphy.profile.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.theraphy.backendtheraphy.appointments.domain.model.entity.Appointment;
-import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
-import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.security.shared.domain.model.AuditModel;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.treatments.domain.model.entity.Treatment;
 import lombok.*;
@@ -36,8 +36,19 @@ public class Physiotherapist extends AuditModel {
     @NotNull
     @NotBlank
     @Size(max = 60)
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "paternal_surname")
+    private String paternalSurname;
+
+    @NotNull
+    @NotBlank
+    @Size(max = 60)
+    @Column(name = "maternal_surname")
+    private String maternalSurname;
+
+    @NotNull
+    @NotBlank
+    @Size(max = 60)
+    private String specialization;
 
     private int age;
 
@@ -122,4 +133,22 @@ public class Physiotherapist extends AuditModel {
 
         return this;
     }
+
+    @NotNull
+    private Long userId;
+
+    @NotNull
+    @Column(name = "consultations_quantity")
+    private Long consultationsQuantity;
+
+
+    @NotNull
+    @NotBlank
+    @Size(max = 60)
+    private String email;
+
+
+    public Double rating;
+
+
 }

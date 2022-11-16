@@ -2,6 +2,7 @@ package com.theraphy.backendtheraphy.profile.resource;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,7 +22,19 @@ public class CreatePhysiotherapistResource {
     @NotNull
     @NotBlank
     @Size(max = 60)
-    private String lastName;
+    @Column(name = "paternal_surname")
+    private String paternalSurname;
+
+    @NotNull
+    @NotBlank
+    @Size(max = 60)
+    @Column(name = "maternal_surname")
+    private String maternalSurname;
+
+    @NotNull
+    @NotBlank
+    @Size(max = 60)
+    private String specialization;
 
     @Min(18)
     private int age;
@@ -38,4 +51,20 @@ public class CreatePhysiotherapistResource {
     @NotNull
     @NotBlank
     private String birthdayDate;
+
+    @NotNull
+    @Column(name = "consultations_quantity")
+    private Long consultationsQuantity;
+
+
+    @NotNull
+    @NotBlank
+    @Size(max = 60)
+    private String email;
+
+
+    public Double rating;
+
+    @NotNull
+    private Long userId;
 }

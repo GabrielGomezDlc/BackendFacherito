@@ -3,9 +3,8 @@ package com.theraphy.backendtheraphy.profile.service;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.profile.domain.persistence.PhysiotherapistRepository;
 import com.theraphy.backendtheraphy.profile.domain.service.PhysiotherapistService;
-import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
-import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -72,11 +71,18 @@ public class PhysiotherapistServiceImpl implements PhysiotherapistService {
         return physiotherapistRepository.findById(physiotherapistId).map( physiotherapist ->
                         physiotherapistRepository.save(
                                 physiotherapist.withFirstName(request.getFirstName()).
-                                        withLastName(request.getLastName()).
+                                        withUserId(request.getUserId()).
+                                        withPaternalSurname(request.getPaternalSurname()).
+                                        withMaternalSurname(request.getMaternalSurname()).
                                         withAge(request.getAge()).
+                                        withRating(request.getRating()).
                                         withPhotoUrl(request.getPhotoUrl()).
                                         withLocation(request.getLocation()).
-                                        withBirthdayDate(request.getBirthdayDate())))
+                                        withBirthdayDate(request.getBirthdayDate()).
+                                        withSpecialization(request.getSpecialization()).
+                                        withEmail(request.getEmail()).
+                                        withConsultationsQuantity(request.getConsultationsQuantity())
+                                ))
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY,physiotherapistId));
     }
 

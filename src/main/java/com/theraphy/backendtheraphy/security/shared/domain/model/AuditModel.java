@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.shared.domain.model;
+package com.theraphy.backendtheraphy.security.shared.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;

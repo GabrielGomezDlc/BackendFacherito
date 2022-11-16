@@ -3,9 +3,8 @@ package com.theraphy.backendtheraphy.profile.service;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
 import com.theraphy.backendtheraphy.profile.domain.persistence.PatientRepository;
 import com.theraphy.backendtheraphy.profile.domain.service.PatientService;
-import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
-import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -77,7 +76,10 @@ public class PatientServiceImpl implements PatientService {
                                         withLastName(request.getLastName()).
                                         withAge(request.getAge()).
                                         withPhotoUrl(request.getPhotoUrl()).
-                                        withBirthdayDate(request.getBirthdayDate())))
+                                        withBirthdayDate(request.getBirthdayDate()).
+                                        withEmail(request.getEmail()).
+                                        withAppointmentQuantity(request.getAppointmentQuantity())
+                                ))
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY,patientId));
     }
 

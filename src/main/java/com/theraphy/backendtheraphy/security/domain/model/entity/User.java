@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.security.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
+import com.theraphy.backendtheraphy.security.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,7 +9,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 

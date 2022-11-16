@@ -1,6 +1,6 @@
 package com.theraphy.backendtheraphy.treatments.mapping;
 
-import com.theraphy.backendtheraphy.shared.mapping.EnhancedModelMapper;
+import com.theraphy.backendtheraphy.security.shared.mapping.EnhancedModelMapper;
 import com.theraphy.backendtheraphy.treatments.domain.model.entity.Treatment;
 import com.theraphy.backendtheraphy.treatments.resource.CreateTreatmentResource;
 import com.theraphy.backendtheraphy.treatments.resource.TreatmentResource;

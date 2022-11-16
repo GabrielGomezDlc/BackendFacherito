@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.shared.configuration;
+package com.theraphy.backendtheraphy.security.shared.configuration;
 
 
 import io.swagger.v3.oas.models.OpenAPI;
