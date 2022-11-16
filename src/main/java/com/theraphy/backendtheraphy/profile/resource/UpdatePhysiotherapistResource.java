@@ -30,7 +30,7 @@ public class UpdatePhysiotherapistResource {
 
     @NotNull
     @NotBlank
-    @Size(max = 60)
+    @Size(max = 300)
     private String photoUrl;
 
     @NotNull

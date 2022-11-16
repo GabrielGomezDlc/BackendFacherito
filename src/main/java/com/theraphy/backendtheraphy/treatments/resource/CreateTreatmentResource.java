@@ -21,12 +21,12 @@ public class CreateTreatmentResource {
 
     @NotBlank
     @NotNull
-    @Size(max = 200)
+    @Size(max = 500)
     private String description;
 
     @NotNull
     @NotBlank
-    @Size(max = 60)
+    @Size(max = 300)
     private String photoUrl;
 
     private int sessionsQuantity;

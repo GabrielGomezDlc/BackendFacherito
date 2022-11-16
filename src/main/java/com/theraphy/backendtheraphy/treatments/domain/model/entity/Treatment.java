@@ -34,12 +34,12 @@ Treatment extends AuditModel {
 
     @NotBlank
     @NotNull
-    @Size(max = 200)
+    @Size(max = 500)
     private String description;
 
     @NotNull
     @NotBlank
-    @Size(max = 60)
+    @Size(max = 300)
     @Column(name = "photo_url")
     private String photoUrl;
 

@@ -27,11 +27,12 @@ public class User extends AuditModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /*
     @NotBlank
     @NotNull
     @Size(max = 50)
     @Column(unique = true)
-    private String username;
+    private String username;*/
 
     @NotNull
     @NotBlank
@@ -44,13 +45,18 @@ public class User extends AuditModel {
     @Size(max = 120)
     private String password;
 
+    @NotNull
+    @NotBlank
+    @Size(max = 20)
+    private String type;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
+/*
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
@@ -59,5 +65,5 @@ public class User extends AuditModel {
 
     public void addRole(Role role){
         this.roles.add(role);
-    }
+    }*/
 }

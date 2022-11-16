@@ -45,7 +45,7 @@ public class Patient extends AuditModel{
 
     @NotNull
     @NotBlank
-    @Size(max = 60)
+    @Size(max = 300)
     @Column(name = "photo_url")
     private String photoUrl;
 
