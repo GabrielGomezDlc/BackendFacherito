@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.security.shared.mapping;
+package com.theraphy.backendtheraphy.shared.mapping;
 
 import org.modelmapper.ModelMapper;
 

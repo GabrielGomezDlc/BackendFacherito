@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PhysiotherapistRepository extends JpaRepository<Physiotherapist, Long> {
     Physiotherapist findByFirstName(String firstName);
+    Optional<Physiotherapist> findByUserId(Long userId);
 }

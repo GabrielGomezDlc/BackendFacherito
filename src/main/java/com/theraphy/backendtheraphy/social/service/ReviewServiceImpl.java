@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.social.service;
 
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceNotFoundException;
-import com.theraphy.backendtheraphy.security.shared.exception.ResourceValidationException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
+import com.theraphy.backendtheraphy.shared.exception.ResourceValidationException;
 import com.theraphy.backendtheraphy.social.domain.model.entity.Review;
 import com.theraphy.backendtheraphy.social.domain.persistence.ReviewRepository;
 import com.theraphy.backendtheraphy.social.domain.service.ReviewService;

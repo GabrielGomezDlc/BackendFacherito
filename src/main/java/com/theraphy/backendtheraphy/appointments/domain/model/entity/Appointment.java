@@ -3,7 +3,7 @@ package com.theraphy.backendtheraphy.appointments.domain.model.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
-import com.theraphy.backendtheraphy.security.shared.domain.model.AuditModel;
+import com.theraphy.backendtheraphy.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;

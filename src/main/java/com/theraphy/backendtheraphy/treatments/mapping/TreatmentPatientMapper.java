@@ -1,6 +1,6 @@
 package com.theraphy.backendtheraphy.treatments.mapping;
 
-import com.theraphy.backendtheraphy.security.shared.mapping.EnhancedModelMapper;
+import com.theraphy.backendtheraphy.shared.mapping.EnhancedModelMapper;
 import com.theraphy.backendtheraphy.treatments.domain.model.entity.TreatmentPatient;
 import com.theraphy.backendtheraphy.treatments.resource.*;
 import org.springframework.beans.factory.annotation.Autowired;
