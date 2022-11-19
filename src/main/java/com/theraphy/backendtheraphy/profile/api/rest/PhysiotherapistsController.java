@@ -1,7 +1,7 @@
 package com.theraphy.backendtheraphy.profile.api.rest;
 
 import com.theraphy.backendtheraphy.profile.domain.service.PhysiotherapistService;
-import com.theraphy.backendtheraphy.profile.resource.mapping.PhysiotherapistMapper;
+import com.theraphy.backendtheraphy.profile.mapping.PhysiotherapistMapper;
 import com.theraphy.backendtheraphy.profile.resource.CreatePhysiotherapistResource;
 import com.theraphy.backendtheraphy.profile.resource.PhysiotherapistResource;
 import com.theraphy.backendtheraphy.profile.resource.UpdatePhysiotherapistResource;

@@ -1,4 +1,4 @@
-package com.theraphy.backendtheraphy.profile.resource.mapping;
+package com.theraphy.backendtheraphy.profile.mapping;
 
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.profile.resource.CreatePhysiotherapistResource;
