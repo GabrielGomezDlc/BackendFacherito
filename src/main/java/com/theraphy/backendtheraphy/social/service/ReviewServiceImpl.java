@@ -86,4 +86,6 @@ public class ReviewServiceImpl implements ReviewService {
     public Review getByStarsAndPhysiotherapistId(Long stars, Long physiotherapistId) {
         return reviewRepository.findByStarsAndPhysiotherapistId(stars, physiotherapistId).orElseThrow(()-> new ResourceNotFoundException("No Reviews with this stars quantity found for Physiotherapist"));
     }
+
+
 }

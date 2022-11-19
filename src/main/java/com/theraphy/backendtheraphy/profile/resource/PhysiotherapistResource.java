@@ -20,4 +20,5 @@ public class PhysiotherapistResource {
     private Long consultationsQuantity;
     private String specialization;
     private String email;
+    private Long userId;
 }

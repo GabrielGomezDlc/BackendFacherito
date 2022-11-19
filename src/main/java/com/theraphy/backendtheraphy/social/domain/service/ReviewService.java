@@ -19,4 +19,5 @@ public interface ReviewService {
     ResponseEntity<?> delete(Long reviewId);
     Review getByStarsAndPatientId(Long stars, Long patientId);
     Review getByStarsAndPhysiotherapistId(Long stars, Long physiotherapistId);
+
 }

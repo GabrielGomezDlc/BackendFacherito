@@ -1,6 +1,7 @@
 package com.theraphy.backendtheraphy.profile.service;
 
 import com.theraphy.backendtheraphy.profile.domain.model.entity.Patient;
+import com.theraphy.backendtheraphy.profile.domain.model.entity.Physiotherapist;
 import com.theraphy.backendtheraphy.profile.domain.persistence.PatientRepository;
 import com.theraphy.backendtheraphy.profile.domain.service.PatientService;
 import com.theraphy.backendtheraphy.shared.exception.ResourceNotFoundException;
@@ -45,6 +46,13 @@ public class PatientServiceImpl implements PatientService {
         return patientRepository.findById(patientId)
                 .orElseThrow(()-> new ResourceNotFoundException(ENTITY, patientId));
     }
+
+    @Override
+    public Patient getByUserId(Long userId) {
+        return patientRepository.findByUserId(userId)
+                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, userId));
+    }
+
 
     @Override
     public Patient create(Patient patient) {
